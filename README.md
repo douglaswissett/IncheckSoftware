@@ -2,6 +2,8 @@ Instructions to run:
 
 `cd InchecksoftwareExampleApp`
 
+`npm install`
+
 `npx react-native start`
 
 `npx react-native run-ios`
