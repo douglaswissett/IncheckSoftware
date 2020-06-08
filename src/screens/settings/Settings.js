@@ -16,7 +16,10 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import {Navigation} from 'react-native-navigation';
+import {connect} from 'react-redux';
+import {compose} from 'redux';
+import store from '../../store';
+import {withStore} from '../../hoc';
 
 const Settings: () => React$Node = (props) => {
   return (
@@ -25,7 +28,15 @@ const Settings: () => React$Node = (props) => {
       <SafeAreaView>
         <ScrollView contentContainerStyle={styles.container}>
           <View>
-
+            <Text>Counter: {props.counter}</Text>
+            <TouchableOpacity
+              onPress={() => store.dispatch({type: 'INCREMENT'})}>
+              <Text>Increment</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => store.dispatch({type: 'DECREMENT'})}>
+              <Text>Decrement</Text>
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -40,4 +51,15 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Settings;
+const mapStateToProps = (state) => ({
+  counter: state,
+});
+
+const mapDispatchToProps = (dispatch) => ({});
+
+const enhancers = compose(
+  withStore,
+  connect(mapStateToProps, mapDispatchToProps),
+);
+
+export default enhancers(Settings);
