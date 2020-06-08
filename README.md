@@ -2,9 +2,9 @@ Instructions to run:
 
 `cd InchecksoftwareExampleApp`
 
-`git checkout develop`
-
 `npm install`
+
+`cd ios && pod install`
 
 `npx react-native start`
 
@@ -14,4 +14,4 @@ Run tests using:
 
 `npm run test`
 
-If I had more time I would have liked to add e2e tests.
+If I had more time I would have liked to add more tests including e2e tests and redux reducer and action tests.
