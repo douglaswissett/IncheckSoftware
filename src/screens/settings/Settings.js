@@ -12,7 +12,7 @@ import {
   ScrollView,
   View,
   StyleSheet,
-  TouchableOpacity,
+  Button,
   Text,
   StatusBar,
 } from 'react-native';
@@ -28,15 +28,17 @@ const Settings: () => React$Node = (props) => {
       <SafeAreaView>
         <ScrollView contentContainerStyle={styles.container}>
           <View>
-            <Text>Counter: {props.counter}</Text>
-            <TouchableOpacity
-              onPress={() => store.dispatch({type: 'INCREMENT'})}>
-              <Text>Increment</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => store.dispatch({type: 'DECREMENT'})}>
-              <Text>Decrement</Text>
-            </TouchableOpacity>
+            <Text testID="counter">Counter: {props.counter}</Text>
+            <Button
+              onPress={() => store.dispatch({type: 'INCREMENT'})}
+              title="Increment"
+              color="#841584"
+            />
+            <Button
+              onPress={() => store.dispatch({type: 'DECREMENT'})}
+              title="Decrement"
+              color="#841584"
+            />
           </View>
         </ScrollView>
       </SafeAreaView>

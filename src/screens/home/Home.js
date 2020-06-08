@@ -10,10 +10,8 @@ import React from 'react';
 import {
   SafeAreaView,
   ScrollView,
-  View,
   StyleSheet,
-  TouchableOpacity,
-  Text,
+  Button,
   StatusBar,
 } from 'react-native';
 import {Navigation} from 'react-native-navigation';
@@ -24,25 +22,24 @@ const Home: () => React$Node = (props) => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView contentContainerStyle={styles.container}>
-          <View>
-            <TouchableOpacity
-              onPress={() => {
-                Navigation.push(props.componentId, {
-                  component: {
-                    name: 'Settings',
-                    options: {
-                      topBar: {
-                        title: {
-                          text: 'Settings',
-                        },
+          <Button
+            onPress={() => {
+              Navigation.push(props.componentId, {
+                component: {
+                  name: 'Settings',
+                  options: {
+                    topBar: {
+                      title: {
+                        text: 'Settings',
                       },
                     },
                   },
-                });
-              }}>
-              <Text>Click to go to Settings</Text>
-            </TouchableOpacity>
-          </View>
+                },
+              });
+            }}
+            title="Press to go to Settings"
+            color="#841584"
+          />
         </ScrollView>
       </SafeAreaView>
     </>
