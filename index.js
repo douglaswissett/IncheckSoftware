@@ -2,15 +2,12 @@
  * @format
  */
 import {Navigation} from 'react-native-navigation';
-// import {AppRegistry} from 'react-native';
-import App from './App';
-// import {name as appName} from './app.json';
+import Home from './src/screens/home/Home';
+import Settings from './src/screens/settings/Settings';
 
-// AppRegistry.registerComponent(appName, () => App);
-Navigation.registerComponent(
-  'com.inchecksoftwareexampleapp.WelcomeScreen',
-  () => App,
-);
+Navigation.registerComponent('Home', () => Home);
+Navigation.registerComponent('Settings', () => Settings);
+
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
@@ -18,7 +15,14 @@ Navigation.events().registerAppLaunchedListener(() => {
         children: [
           {
             component: {
-              name: 'com.inchecksoftwareexampleapp.WelcomeScreen',
+              name: 'Home',
+              options: {
+                topBar: {
+                  title: {
+                    text: 'Home',
+                  },
+                },
+              },
             },
           },
         ],
